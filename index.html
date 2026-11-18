@@ -117,14 +117,13 @@ section.block{padding-block:112px 0}
 .menu{background:var(--white);border-radius:32px;padding:56px;display:flex;flex-direction:column;gap:28px}
 .menu-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px}
 .menu-head p{margin:0;color:var(--sub)}
-.menu-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:16px}
-.menu-main{grid-row:span 2;border:2px solid var(--ink);border-radius:22px;overflow:hidden;display:grid;grid-template-columns:200px minmax(0,1fr)}
-.menu-main img{width:100%;height:100%;object-fit:cover}
-.menu-main div{padding:30px;display:flex;flex-direction:column;gap:10px;justify-content:center}
-.menu-main h3{margin:0;font-size:26px;line-height:1.4}
-.menu-main p,.menu-sub p{margin:0;color:var(--sub)}
-.menu-sub{border:2px solid var(--ink);border-radius:18px;padding:22px 26px;display:flex;flex-direction:column;gap:4px;justify-content:center}
-.menu-sub h3{margin:0;font-size:20px;line-height:1.5}
+.menu-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:16px}
+.menu-card{border:2px solid var(--ink);border-radius:20px;padding:26px 28px;display:flex;flex-direction:column;gap:8px;background:var(--white)}
+.menu-card.is-main{background:var(--yellow)}
+.menu-card h3{margin:0;font-size:21px;line-height:1.45}
+.menu-card p{margin:0;color:var(--sub);font-size:16px}
+.menu-card.is-main p{color:var(--ink)}
+.menu-talk{margin:0;font-size:18px;font-weight:700;line-height:1.7}
 .menu-note{margin:0;font-size:15px;color:var(--sub);border-top:1px dashed #8A8375;padding-top:16px}
 
 .two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px}
@@ -170,8 +169,8 @@ section.block{padding-block:112px 0}
   .fv h1{font-size:42px}
   .stats dd{font-size:26px;white-space:nowrap}
   .stats dt{width:84px}
-  .menu-main{grid-template-columns:1fr}
-  .menu-main img{height:200px}
+  .menu-grid{grid-template-columns:1fr 1fr}
+  .menu-card.is-main{grid-column:1/-1}
   .fv-copy{padding:56px 40px 40px}
   .fv-proof{grid-template-columns:150px minmax(0,1fr)}
   .fv-proof img{width:150px;height:150px}
@@ -188,9 +187,6 @@ section.block{padding-block:112px 0}
   .posts{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 16px}
   .posts img{aspect-ratio:3/4}
   .menu{padding:40px}
-  .menu-grid{grid-template-columns:1fr 1fr}
-  .menu-main{grid-column:1/-1;grid-row:auto;grid-template-columns:240px minmax(0,1fr)}
-  .menu-main img{height:100%}
   .fv h1{font-size:46px}
   .two{grid-template-columns:1fr;gap:48px}
   .final{flex-direction:column;align-items:flex-start;padding:44px 40px}
@@ -250,14 +246,10 @@ section.block{padding-block:112px 0}
   .menu-head{flex-direction:column;align-items:flex-start;gap:4px}
   .menu-head p{font-size:15px}
   .menu-grid{grid-template-columns:1fr;gap:10px}
-  .menu-main{grid-template-columns:1fr;border-radius:16px}
-  .menu-main img{height:150px}
-  .menu-main div{padding:16px}
-  .menu-main h3{font-size:19px}
-  .menu-main p{font-size:14px;line-height:1.7}
-  .menu-sub{padding:14px 16px;border-radius:14px}
-  .menu-sub h3{font-size:17px}
-  .menu-sub p{font-size:14px}
+  .menu-card{padding:16px 18px;border-radius:14px;gap:4px}
+  .menu-card h3{font-size:17px}
+  .menu-card p{font-size:14px;line-height:1.7}
+  .menu-talk{font-size:16px}
   .menu-note{font-size:14px}
   .h3{font-size:24px;margin-bottom:14px}
   .two{gap:40px}
@@ -394,21 +386,19 @@ section.block{padding-block:112px 0}
   <div class="menu">
     <div class="menu-head">
       <h2 class="h2" id="menu-title">頼めること</h2>
-      <p style="word-break:keep-all">いちばん多いのは、<wbr>お店・施設の<wbr>PRのご相談です。</p>
+      <p>どれに当てはまるか分からなくても大丈夫。<wbr>まずはお話を聞かせてください。</p>
     </div>
     <div class="menu-grid">
-      <div class="menu-main">
-        <img src="img/curry.webp" alt="投稿「坂の上の人気カレー」の表紙" width="720" height="1280" loading="lazy">
-        <div><h3>お店・施設のPR</h3><p>新しいお店、新メニュー、季節の限定品、施設の楽しみ方。<wbr>家族で行って、リールで紹介します。</p></div>
-      </div>
-      <div class="menu-sub"><h3>取材・体験レポート</h3><p>親子で体験して、正直にレポート</p></div>
-      <div class="menu-sub"><h3>地域・企画のコラボ</h3><p>イベント・モデルコース・共同企画</p></div>
+      <div class="menu-card is-main"><h3>お店・施設のPR</h3><p>新しいお店、新メニュー、<wbr>季節の限定品、施設の楽しみ方。<wbr>家族で行って、リールで紹介します。</p></div>
+      <div class="menu-card"><h3>取材・体験レポート</h3><p>親子で体験して、<wbr>正直にレポートします。</p></div>
+      <div class="menu-card"><h3>地域・企画のコラボ</h3><p>イベント、モデルコース、<wbr>共同企画など。</p></div>
     </div>
+    <p class="menu-talk">「こんなことできる？」<wbr>「まだ何も決まってないけど…」<wbr>そんな<span style="white-space:nowrap">ひと言から、</span><wbr>気軽にご相談ください。</p>
     <p class="menu-note">お店の集客そのもの（MEO・HP・LINE・Instagram運用）のご相談も、<wbr><span style="white-space:nowrap">IBDとして</span>お受けしています。</p>
   </div>
 </section>
 
-<section class="block wrap two" aria-label="流れとよくある質問">
+<section class="block wrap two" aria-label="流れとご相談の前に">
   <div>
     <h2 class="h3">送ったあとの流れ</h2>
     <ol class="steps">
@@ -418,7 +408,7 @@ section.block{padding-block:112px 0}
     </ol>
   </div>
   <div>
-    <h2 class="h3">よくある質問</h2>
+    <h2 class="h3">ご相談の前に</h2>
     <div class="faq">
       <div class="faq-item">
         <button class="faq-q" type="button" aria-expanded="true" aria-controls="faq1" id="faq1-q"><span>費用はどのくらいですか？</span><span class="faq-icon" aria-hidden="true"></span></button>
